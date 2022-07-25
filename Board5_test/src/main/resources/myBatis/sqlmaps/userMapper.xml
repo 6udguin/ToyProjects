@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="User">
+<!-- 
+//UserController new user= {gender=M, address3= (중앙동), address2=asdasd, address1=경남 창원시 성산구 중앙대로 85, postNum=51515, birth=19901010, 
+//phonenum2=1111, userid=sky, phonenum3=1111, phonenum1=010, intro=asd, password2=1234, password1=1234, username=12345}		
+ -->
+	<!-- 회원가입 -->
+	<insert id="newUser">
+		INSERT INTO TUSER(USERID, PASSWD, USERNAME, PHONENUM, POST, BIRTH, INDATE, GENDER, INTRO, USERTYPE)
+		VALUES(#{userid}, #{password1}, #{username}, #{phonenum}, #{address}, #{birth}, SYSDATE, #{gender}, #{intro}, '1'
+		  )
+	</insert>
+
+	<select id="findUser"
+	resultType="com.boardK.user.vo.UserVo">
+		SELECT (USERID, PASSWD, USERNAME, PHONENUM, INDATE)
+		FROM TUSER
+		WHERE 
+	
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
